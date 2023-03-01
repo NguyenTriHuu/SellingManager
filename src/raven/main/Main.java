@@ -14,6 +14,7 @@ import raven.cellofproduct.TableActionCellProEditor;
 import raven.cellofproduct.TableActionCellProRender;
 import raven.cellofproduct.TableimageProCellRender;
 import raven.event.EventMenuSelected;
+import raven.form.Form_InventoryManagement;
 import raven.form.Form_PersonnelManagement;
 import raven.form.Form_ProductsManagement;
 import raven.form.Form_Sell;
@@ -23,6 +24,7 @@ public class Main extends javax.swing.JFrame {
     private Form_Sell form_Sell;
     private Form_PersonnelManagement form_PersonnelManagement;
     private Form_ProductsManagement form_ProductsManagement;
+    private Form_InventoryManagement form_InventoryManagement;
     public Main() {
         initComponents();
         getContentPane().setBackground(Color.white);
@@ -30,6 +32,7 @@ public class Main extends javax.swing.JFrame {
         form_Sell = new Form_Sell();
         form_PersonnelManagement = new Form_PersonnelManagement();
         form_ProductsManagement = new Form_ProductsManagement();
+        form_InventoryManagement =new Form_InventoryManagement();
         setForm(form_PersonnelManagement);
         menu.addEventMenuSelected(new EventMenuSelected() {
             @Override
@@ -41,6 +44,7 @@ public class Main extends javax.swing.JFrame {
                     setForm(form_ProductsManagement);
                     System.out.println("1");
                 } else if (index == 2) {
+                    setForm(form_InventoryManagement);
                     System.out.println("2");
                 } else if (index == 3) {
                     setForm(form_Sell);
