@@ -8,7 +8,7 @@ import javax.swing.JComponent;
 import javax.swing.table.DefaultTableModel;
 import raven.cell.TableActionCellEditor;
 import raven.cell.TableActionCellRender;
-import raven.cell.TableActionEvent;
+import raven.event.TableActionEvent;
 import raven.cell.TableAvatarCellRender;
 import raven.cellofproduct.TableActionCellProEditor;
 import raven.cellofproduct.TableActionCellProRender;

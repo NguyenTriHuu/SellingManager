@@ -6,10 +6,14 @@ package raven.swing;
 
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
-import raven.cell.TableActionEvent;
+import raven.cellofBill.TableActionCellInBillEditor;
+import raven.cellofBill.TableActionCellProInBillRender;
+import raven.cellofBill.TableimageProCellInBillRender;
+import raven.event.TableActionEvent;
 import raven.cellofproduct.TableActionCellProEditor;
 import raven.cellofproduct.TableActionCellProRender;
 import raven.cellofproduct.TableimageProCellRender;
+import raven.event.TableActionInBillEvent;
 
 /**
  *
@@ -23,20 +27,10 @@ public class TabbedPaneBill extends javax.swing.JPanel {
     public TabbedPaneBill() {
         initComponents();
         initComponents();
-        TableActionEvent event =new TableActionEvent() {
-            @Override
-            public void onEdit(int row) {
-                
-            }
-
-            @Override
-            public void onView(int row) {
-                
-            }
-
+        TableActionInBillEvent event=new TableActionInBillEvent() {
             @Override
             public void onDelete(int row) {
-                
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         };
         search1.settext("Nhập mã sản phẩm hoặc tên sản phẩm để tìm kiếm ...");
@@ -44,9 +38,9 @@ public class TabbedPaneBill extends javax.swing.JPanel {
         dtm1.addRow(new Object[]{"1","Mi Hao Hao chua cay","C:\\Users\\user\\OneDrive\\Desktop\\iloveimg-resized\\Hảo-Hảo-Tôm.png","1","4500"});
         dtm1.addRow(new Object[]{"2","Cocacola lon","C:\\Users\\user\\OneDrive\\Desktop\\iloveimg-resized\\Cocacola.png","1","12000"});
         dtm1.addRow(new Object[]{"3","Absolut Vodka","C:\\Users\\user\\OneDrive\\Desktop\\iloveimg-resized\\vodka.png","1","70000"});
-        table1.getColumnModel().getColumn(5).setCellRenderer(new TableActionCellProRender());
-        table1.getColumnModel().getColumn(5).setCellEditor(new TableActionCellProEditor(event));
-        table1.getColumnModel().getColumn(2).setCellRenderer(new TableimageProCellRender());
+        table1.getColumnModel().getColumn(5).setCellRenderer(new TableActionCellProInBillRender());
+        table1.getColumnModel().getColumn(5).setCellEditor(new TableActionCellInBillEditor(event));
+        table1.getColumnModel().getColumn(2).setCellRenderer(new TableimageProCellInBillRender());
         jScrollPane2.getViewport().setBackground(Color.WHITE);
     }
 
@@ -265,6 +259,7 @@ public class TabbedPaneBill extends javax.swing.JPanel {
                 "Mã sản phẩm", "Tên sản phẩm", "Ảnh", "Số lượng", "Giá bán", ""
             }
         ));
+        table1.setSelectionBackground(new java.awt.Color(31, 204, 66));
         jScrollPane2.setViewportView(table1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -8,15 +8,16 @@ import java.awt.Component;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
 import javax.swing.JTable;
-import raven.cell.TableActionEvent;
+import raven.event.TableActionEvent;
+import raven.event.TableActionProductEvent;
 
 /**
  *
  * @author user
  */
 public class TableActionCellProEditor extends DefaultCellEditor {
-    private TableActionEvent event;
-    public TableActionCellProEditor(TableActionEvent event) {
+    private TableActionProductEvent event;
+    public TableActionCellProEditor(TableActionProductEvent event) {
         super(new JCheckBox());
         this.event=event;
     }

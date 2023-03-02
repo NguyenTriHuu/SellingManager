@@ -19,13 +19,13 @@ public class TableActionCellProInBillRender extends DefaultTableCellRenderer{
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-        ProductAction productAction =new ProductAction();
+        ProductInBillAction productInBillAction=new ProductInBillAction();
         if(isSelected ==false && row %2 ==0){
-            productAction.setBackground(Color.WHITE);
+            productInBillAction.setBackground(Color.WHITE);
         }else{
-            productAction.setBackground(component.getBackground());
+            productInBillAction.setBackground(component.getBackground());
         }
-        return productAction;
+        return productInBillAction;
     }
     
 }

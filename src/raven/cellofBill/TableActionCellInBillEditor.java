@@ -9,24 +9,25 @@ import java.awt.Component;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
 import javax.swing.JTable;
-import raven.cell.TableActionEvent;
+import raven.event.TableActionEvent;
+import raven.event.TableActionInBillEvent;
 
 /**
  *
  * @author user
  */
 public class TableActionCellInBillEditor extends DefaultCellEditor {
-    private TableActionEvent event;
-    public TableActionCellInBillEditor(TableActionEvent event) {
+    private TableActionInBillEvent event;
+    public TableActionCellInBillEditor(TableActionInBillEvent event) {
         super(new JCheckBox());
         this.event=event;
     }
 
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
-        ProductAction productAction =new ProductAction();
-        productAction.setBackground(table.getSelectionBackground());
-        return productAction;
+        ProductInBillAction productInBillAction =new ProductInBillAction();
+        productInBillAction.setBackground(table.getSelectionBackground());
+        return productInBillAction;
     }
     
     

@@ -4,6 +4,7 @@
  */
 package raven.cell;
 
+import raven.event.TableActionEvent;
 import java.awt.Component;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;

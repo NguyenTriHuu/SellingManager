@@ -8,7 +8,7 @@ import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 import raven.cell.TableActionCellEditor;
 import raven.cell.TableActionCellRender;
-import raven.cell.TableActionEvent;
+import raven.event.TableActionEvent;
 import raven.cell.TableAvatarCellRender;
 
 /**
@@ -25,17 +25,17 @@ public class Form_PersonnelManagement extends javax.swing.JPanel {
         TableActionEvent event =new TableActionEvent() {
             @Override
             public void onEdit(int row) {
-                
+                System.out.print(row);
             }
 
             @Override
             public void onView(int row) {
-                
+                System.out.print(row);
             }
 
             @Override
             public void onDelete(int row) {
-                
+                System.out.print(row);
             }
         };
         search1.settext("Nhập họ tên hoặc SDT ...");
