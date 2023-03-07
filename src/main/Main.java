@@ -18,6 +18,7 @@ import form.Form_InventoryManagement;
 import form.Form_PersonnelManagement;
 import form.Form_ProductsManagement;
 import form.Form_Sell;
+import form.Form_RevenueReport;
 
 public class Main extends javax.swing.JFrame {
 
@@ -25,6 +26,7 @@ public class Main extends javax.swing.JFrame {
     private Form_PersonnelManagement form_PersonnelManagement;
     private Form_ProductsManagement form_ProductsManagement;
     private Form_InventoryManagement form_InventoryManagement;
+    private Form_RevenueReport form_RevenueReport;
     public Main() {
         initComponents();
         getContentPane().setBackground(Color.white);
@@ -33,6 +35,8 @@ public class Main extends javax.swing.JFrame {
         form_PersonnelManagement = new Form_PersonnelManagement();
         form_ProductsManagement = new Form_ProductsManagement();
         form_InventoryManagement =new Form_InventoryManagement();
+        form_RevenueReport = new Form_RevenueReport();
+        
         setForm(form_PersonnelManagement);
         menu.addEventMenuSelected(new EventMenuSelected() {
             @Override
@@ -50,10 +54,11 @@ public class Main extends javax.swing.JFrame {
                     setForm(form_Sell);
                     System.out.println("3");
                 } else if (index == 4) {
+                    setForm(form_RevenueReport);
                     System.out.println("4");
                 }
             }
- //asdsd
+
         });
 
     }
