@@ -4,12 +4,16 @@
  */
 package form;
 
+import Controller.ClientCtr;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 import cell.TableActionCellEditor;
 import cell.TableActionCellRender;
 import event.TableActionEvent;
 import cell.TableAvatarCellRender;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -179,6 +183,11 @@ public class Form_PersonnelManagement extends javax.swing.JPanel {
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-save-40.png"))); // NOI18N
         jButton2.setText("Lưu");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 0, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -332,6 +341,18 @@ public class Form_PersonnelManagement extends javax.swing.JPanel {
             .addComponent(materialTabbled1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       ClientCtr ctr =new ClientCtr();
+       ctr.Connect();
+       ctr.SendMes("test");
+        try {
+            System.out.println(""+ ctr.ResultMes());
+        } catch (IOException ex) {
+            Logger.getLogger(Form_PersonnelManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ctr.closeConnect();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
