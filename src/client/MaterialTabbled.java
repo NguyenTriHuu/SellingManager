@@ -26,7 +26,7 @@ import javax.swing.plaf.metal.MetalTabbedPaneUI;
 import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTarget;
 import org.jdesktop.animation.timing.interpolation.PropertySetter;
-import raven.component.ButtonTabComponent;
+import component.ButtonTabComponent;
 
 /**
  *
