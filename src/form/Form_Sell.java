@@ -40,6 +40,7 @@ public class Form_Sell extends javax.swing.JPanel {
                 materialTabbled1.addTab("",null);
                 materialTabbled1.setTabComponentAt(index+1,addButton);
                 System.out.printf(""+index);
+        //jhjhjhj
             }
             
         });*/
