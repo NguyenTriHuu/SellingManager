@@ -20,6 +20,7 @@ import form.Form_ProductsManagement;
 import form.Form_Sell;
 import form.Form_RevenueReport;
 
+
 public class Main extends javax.swing.JFrame {
 
     private Form_Sell form_Sell;
