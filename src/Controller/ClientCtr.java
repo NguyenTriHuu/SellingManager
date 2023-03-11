@@ -5,11 +5,13 @@
 package Controller;
 
 import client.Message;
+import entities.HoaDon;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -47,6 +49,20 @@ public class ClientCtr {
             Message=(String)bf.readLine();
      return Message;
     }
+    
+    public void SaveBill(String mes,HoaDon bill) throws IOException{
+        try {
+            ObjectOutputStream oos=new ObjectOutputStream(clientsocket.getOutputStream()) ;
+            oos.writeObject(mes);
+            oos.flush();
+            oos.writeObject(bill);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }         
+    }
+    
+    
+    
     
     public void closeConnect(){
         try {

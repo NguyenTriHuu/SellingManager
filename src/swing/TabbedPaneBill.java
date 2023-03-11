@@ -4,6 +4,7 @@
  */
 package swing;
 
+import Controller.ClientCtr;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 import cellofBill.TableActionCellInBillEditor;
@@ -13,7 +14,13 @@ import event.TableActionEvent;
 import cellofproduct.TableActionCellProEditor;
 import cellofproduct.TableActionCellProRender;
 import cellofproduct.TableimageProCellRender;
+import entities.HoaDon;
 import event.TableActionInBillEvent;
+import form.Form_PersonnelManagement;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,24 +34,23 @@ public class TabbedPaneBill extends javax.swing.JPanel {
     public TabbedPaneBill() {
         initComponents();
         initComponents();
-        TableActionInBillEvent event=new TableActionInBillEvent() {
+        TableActionInBillEvent event = new TableActionInBillEvent() {
             @Override
             public void onDelete(int row) {
                 throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         };
         search1.settext("Nhập mã sản phẩm hoặc tên sản phẩm để tìm kiếm ...");
-        DefaultTableModel dtm1 =(DefaultTableModel)table1.getModel();
-        dtm1.addRow(new Object[]{"1","Mi Hao Hao chua cay","C:\\Users\\user\\OneDrive\\Desktop\\iloveimg-resized\\Hảo-Hảo-Tôm.png","1","4500"});
-        dtm1.addRow(new Object[]{"2","Cocacola lon","C:\\Users\\user\\OneDrive\\Desktop\\iloveimg-resized\\Cocacola.png","1","12000"});
-        dtm1.addRow(new Object[]{"3","Absolut Vodka","C:\\Users\\user\\OneDrive\\Desktop\\iloveimg-resized\\vodka.png","1","70000"});
+        DefaultTableModel dtm1 = (DefaultTableModel) table1.getModel();
+        dtm1.addRow(new Object[]{"1", "Mi Hao Hao chua cay", "C:\\Users\\user\\OneDrive\\Desktop\\iloveimg-resized\\Hảo-Hảo-Tôm.png", "1", "4500"});
+        dtm1.addRow(new Object[]{"2", "Cocacola lon", "C:\\Users\\user\\OneDrive\\Desktop\\iloveimg-resized\\Cocacola.png", "1", "12000"});
+        dtm1.addRow(new Object[]{"3", "Absolut Vodka", "C:\\Users\\user\\OneDrive\\Desktop\\iloveimg-resized\\vodka.png", "1", "70000"});
         table1.getColumnModel().getColumn(5).setCellRenderer(new TableActionCellProInBillRender());
         table1.getColumnModel().getColumn(5).setCellEditor(new TableActionCellInBillEditor(event));
         table1.getColumnModel().getColumn(2).setCellRenderer(new TableimageProCellInBillRender());
         jScrollPane2.getViewport().setBackground(Color.WHITE);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -137,6 +143,11 @@ public class TabbedPaneBill extends javax.swing.JPanel {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-save-40.png"))); // NOI18N
         jButton1.setText("Lưu hóa đơn");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(0, 189, 93));
         jButton2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
@@ -296,6 +307,31 @@ public class TabbedPaneBill extends javax.swing.JPanel {
                 .addGap(110, 110, 110))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        HoaDon bill = new HoaDon();
+        bill.setHd_maso(1);
+        bill.setNv_maso(1);
+        bill.setLhd_maso(1);
+        bill.setTt_maso(1);
+        bill.setHd_ghichu("aaa");
+        bill.setHd_ngaylap("1-1-2001");
+        bill.setHd_tongtien("12000");
+        ClientCtr ctr = new ClientCtr();
+        ctr.Connect();
+        try {
+            ctr.SaveBill("SaveBill", bill);
+        } catch (IOException ex) {
+            Logger.getLogger(TabbedPaneBill.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            JOptionPane.showMessageDialog(null, ctr.ResultMes());
+        } catch (IOException ex) {
+            Logger.getLogger(TabbedPaneBill.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ctr.closeConnect();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

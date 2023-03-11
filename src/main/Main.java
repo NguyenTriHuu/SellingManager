@@ -28,7 +28,42 @@ public class Main extends javax.swing.JFrame {
     private Form_ProductsManagement form_ProductsManagement;
     private Form_InventoryManagement form_InventoryManagement;
     private Form_RevenueReport form_RevenueReport;
-    public Main() {
+    private String emailuser;
+    public Main(){
+        initComponents();
+        getContentPane().setBackground(Color.white);
+        setExtendedState(MAXIMIZED_BOTH);
+        form_Sell = new Form_Sell();
+        form_PersonnelManagement = new Form_PersonnelManagement();
+        form_ProductsManagement = new Form_ProductsManagement();
+        form_InventoryManagement =new Form_InventoryManagement();
+        form_RevenueReport = new Form_RevenueReport();       
+        setForm(form_PersonnelManagement);
+        menu.addEventMenuSelected(new EventMenuSelected() {
+            @Override
+            public void selected(int index) {
+                if (index == 0) {
+                    setForm(form_PersonnelManagement);
+                    System.out.println("0");
+                } else if (index == 1) {
+                    setForm(form_ProductsManagement);
+                    System.out.println("1");
+                } else if (index == 2) {
+                    setForm(form_InventoryManagement);
+                    System.out.println("2");
+                } else if (index == 3) {
+                    setForm(form_Sell);
+                    System.out.println("3");
+                } else if (index == 4) {
+                    setForm(form_RevenueReport);
+                    System.out.println("4");
+                }
+            }
+
+        });
+    }
+    /*public Main(String usermail) {
+        this.emailuser = usermail;
         initComponents();
         getContentPane().setBackground(Color.white);
         setExtendedState(MAXIMIZED_BOTH);
@@ -62,7 +97,7 @@ public class Main extends javax.swing.JFrame {
 
         });
 
-    }
+    }*/
 
     private void setForm(JComponent com) {
         MainPanel.removeAll();
