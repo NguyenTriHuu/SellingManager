@@ -11,10 +11,12 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class ClientCtr {
     private int port;
@@ -60,7 +62,22 @@ public class ClientCtr {
             e.printStackTrace();
         }         
     }
+    public void SearchNameProduct(String mes, String search){
+        try {
+            ObjectOutputStream oos=new ObjectOutputStream(clientsocket.getOutputStream()) ;
+            oos.writeObject(mes);
+            oos.flush();
+            oos.writeObject(search);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }    
+    }
     
+    public ArrayList<String> ResultNameProduct () throws IOException, ClassNotFoundException{
+        ObjectInputStream ois = new ObjectInputStream(clientsocket.getInputStream());
+        ArrayList<String> list =(ArrayList<String>) ois.readObject();
+        return list;
+    }
     
     
     

@@ -40,7 +40,7 @@ public class TabbedPaneBill extends javax.swing.JPanel {
                 throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         };
-        search1.settext("Nhập mã sản phẩm hoặc tên sản phẩm để tìm kiếm ...");
+        search.settext("Nhập mã sản phẩm hoặc tên sản phẩm để tìm kiếm ...");
         DefaultTableModel dtm1 = (DefaultTableModel) table1.getModel();
         dtm1.addRow(new Object[]{"1", "Mi Hao Hao chua cay", "C:\\Users\\user\\OneDrive\\Desktop\\iloveimg-resized\\Hảo-Hảo-Tôm.png", "1", "4500"});
         dtm1.addRow(new Object[]{"2", "Cocacola lon", "C:\\Users\\user\\OneDrive\\Desktop\\iloveimg-resized\\Cocacola.png", "1", "12000"});
@@ -81,7 +81,7 @@ public class TabbedPaneBill extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         table1 = new swing.Table();
-        search1 = new component.Search();
+        search = new component.Search();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -282,13 +282,12 @@ public class TabbedPaneBill extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(241, 241, 241))
-                            .addComponent(search1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(224, 224, 224))
-                    .addComponent(jScrollPane2))
+                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(465, 465, 465))
+                    .addComponent(jScrollPane2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -301,8 +300,8 @@ public class TabbedPaneBill extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(search1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(jScrollPane2)
                 .addGap(110, 110, 110))
         );
@@ -360,7 +359,7 @@ public class TabbedPaneBill extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private component.Search search1;
+    private component.Search search;
     private swing.Table table1;
     // End of variables declaration//GEN-END:variables
 }
